@@ -1,0 +1,5 @@
+/* Keeps header fixed on top */
+header {
+    transition: all 0.3s ease-in-out;
+  }
+  
