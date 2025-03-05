@@ -1,1 +1,50 @@
-<p>products works!</p>
+<section class="bg-white text-gray-800 py-20 px-6">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold text-gray-800 mb-6">
+        Our <span class="text-blue-600">Products</span>
+      </h2>
+      <p class="max-w-2xl mx-auto text-lg text-gray-600">
+        Explore our wide range of industrial automation products under each category.
+      </p>
+  
+      <!-- Category Buttons -->
+      <div class="flex justify-center space-x-4 my-6">
+        <button
+          *ngFor="let category of categories"
+          (click)="selectCategory(category.name)"
+          class="px-6 py-2 text-lg font-semibold rounded-lg transition"
+          [class.bg-blue-600]="selectedCategory === category.name"
+          [class.text-white]="selectedCategory === category.name"
+          [class.bg-gray-200]="selectedCategory !== category.name"
+          [class.text-gray-800]="selectedCategory !== category.name"
+        >
+          {{ category.name }}
+        </button>
+      </div>
+  
+      <!-- Products Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mt-8">
+        <div
+          *ngFor="let product of filteredProducts"
+          class="bg-gray-100 p-6 rounded-lg shadow-lg text-center"
+        >
+        <img
+        [src]="product.image"
+        [alt]="product.name"
+        class="w-full h-56 object-contain rounded-md mb-4"
+      />
+      
+          <h4 class="text-xl font-semibold text-gray-800">{{ product.name }}</h4>
+          <p class="text-gray-600 text-sm mt-2">{{ product.description }}</p>
+  
+          <button
+            (click)="enquire(product.name)"
+            class="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition"
+          >
+            Enquiry
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+  
