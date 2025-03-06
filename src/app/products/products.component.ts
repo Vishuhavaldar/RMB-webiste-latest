@@ -16,17 +16,17 @@ export class ProductSectionComponent {
       products: [
         {
           name: 'Air booster',
-          image: 'https://www.ckd.co.jp/kiki/src/product_img/product_img_890_R86j_large.jpg',
+          image: 'assets/images/airbooster.png',
           description: 'Enables air boosting by using only air pressure in combination with air tanks to raise the primary pressure two-fold (0.99 MPa max.)',
         },
         {
           name: 'Karman Vortex Flow Sensor FLUEREX',
-          image: 'https://www.ckd.co.jp/kiki/src/product_img/product_img_14616_ssOl_large.jpg',
+          image: 'assets/images/karmavortex.png',
           description: 'Karman vortex flow sensor that covers 0.4 to 250 L/min. Switch setting for various outputs can be made and IO-Link communication is supported.',
         },
         {
           name: 'Tie rod cylinder',
-          image: 'https://www.ckd.co.jp/kiki/src/product_img/product_img_183_aVn2_large.jpg',
+          image: 'assets/images/tirrodcylinder.png',
           description: 'Medium bore size (φ32 to φ100) series of standard tie rod cylinders. Environment-friendly cylinder that has eliminated hazardous substances.',
         },
       ],
