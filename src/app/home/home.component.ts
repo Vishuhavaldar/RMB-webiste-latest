@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { LucideAngularModule } from 'lucide-angular';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,LucideAngularModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'], // Corrected: `styleUrls` should be an array
+  styleUrl: './home.component.css'
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(private router: Router) {}
+
+  goToProducts(company: string) {
+    this.router.navigate(['/products'], { queryParams: { category: company } });
+  }
+}

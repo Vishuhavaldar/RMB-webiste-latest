@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common'; 
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -120,19 +121,44 @@ export class ProductSectionComponent {
       name: 'LINTEC',
       products: [
         {
-          name: 'Labeling Machines',
-          image: 'https://www.lintec.co.jp/en/wp-content/uploads/sites/2/2021/02/products_001.jpg',
-          description: 'High-speed labeling machines for various industries.',
+          name: 'Fast Response Mass Flow Controller MC-7000 Series',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-7000.jpg',
+          description: 'Achieves high-speed flow control of 200msec (typical) by using a thermal sensor. By using the Lintec’s unique non-contact, thermal flow rate sensor and piezo control valve, it’s possible to control the flow of corrosive gases with ultra-high speed.',
         },
         {
-          name: 'Adhesive Solutions',
-          image: 'https://www.lintec.co.jp/en/wp-content/uploads/sites/2/2021/02/products_002.jpg',
-          description: 'Innovative adhesive solutions for industrial applications.',
+          name: 'EtherCAT Mass Flow Controller MC-5000C Series',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-5000C.jpg',
+          description: 'High performance EtherCAT mass flow controller for semiconductor processes. It is compliant with SEMI standards and can be controlled by using the EtherCAT communication, which is used to speed up the transport system of semiconductor manufacturing equipment.',
         },
         {
-          name: 'Printing Equipment',
-          image: 'https://www.lintec.co.jp/en/wp-content/uploads/sites/2/2021/02/products_003.jpg',
-          description: 'Advanced printing equipment for high-quality prints.',
+          name: 'DeviceNet Mass Flow Controller',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-5000L.jpg',
+          description: 'In order to achieve high speed control and simplify the wiring system, more and more control devices installed in the newest semiconductor manufacturing tools have started to utilize not analog, but open fieldwork communication.',
+        },
+        {
+          name: 'High Performance Digital Mass Flow Controller MC-3000L Series',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-3000L.jpg',
+          description: 'Lintec’s unique ambient temperature compensated flow rate sensor enables highly accurate flow measurement even at low temperatures. It suppresses the heat aging of the sensor and allows flow rate control even for highly decomposable gases such as ozone.',
+        },
+        {
+          name: 'High Temperature Mass Flow Controller MC-3000L-TC Series',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-3000L-TC-768x305.jpg',
+          description: "'Gas control at high temperature is possible by separating the wetted part and the circuit board part  which is sensitive to heat.SUS-316L is used for the block and Au is used for the sealing material, making it compatible with corrosive gases.'",
+        },
+        {
+          name: 'Low Differential Pressure Mass Flow Controller',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-3000S-223x300.jpg',
+          description: "Pressure loss is reduced with a unique ambient temperature compensated flow rate sensor with low pressure loss specifications and an accuracy of ±1%F.S.",
+        },
+        {
+          name: 'Variable Range(VR)Mass Flow Controller',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-700-248x300.jpg',
+          description: "Variable range function allows flow control at different setups with a single unit, which eliminates the necessity to use multiple MFCs and thus helps to reduce the spare parts’ number.",
+        },
+        {
+          name: 'Low-cost Mass Flow Controller MC-10 Series',
+          image: 'https://ld7wbevg6gkl.cdn.shift8web.com/en/wp-content/uploads/2023/07/MC-10-1-300x300.jpg',
+          description: "A low-cost mass flow controller ideal for controlling the flow rate of inert gases such as Ar, N2, etc. and controlling the flow rate of Air. Limited specifications enable quick delivery time.",
         },
       ],
     },
@@ -149,5 +175,15 @@ export class ProductSectionComponent {
 
   selectCategory(category: string) {
     this.selectedCategory = category;
+  }
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if (params['category']) {
+        this.selectedCategory = params['category'];
+      }
+    });
   }
 }
