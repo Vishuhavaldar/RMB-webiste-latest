@@ -66,7 +66,8 @@
               "buildTarget": "RMB:build:production"
             },
             "development": {
-              "buildTarget": "RMB:build:development"
+              "buildTarget": "RMB:build:development",
+               "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

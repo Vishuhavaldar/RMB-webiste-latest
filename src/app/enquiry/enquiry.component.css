@@ -1,0 +1,19 @@
+.fixed {
+    position: fixed;
+  }
+  button {
+    transition: background-color 0.3s ease;
+  }
+  
+  input, textarea, select {
+    font-size: 16px;
+  }
+  
+  h3 {
+    font-size: 24px;
+  }
+  
+  .fixed {
+    z-index: 9999;
+  }
+  

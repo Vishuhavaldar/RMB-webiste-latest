@@ -1,0 +1,11 @@
+{
+    "/restcountries": {
+      "target": "https://restcountries.com/v3.1/",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/restcountries": ""
+      }
+    }
+  }
+  
