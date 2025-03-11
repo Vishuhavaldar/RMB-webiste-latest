@@ -74,10 +74,10 @@ export class EnquiryComponent implements OnInit {
 
       emailjs
         .send(
-          'service_879rc9h', // Service ID
-          'template_gifuyxc', // Template ID
+          'service_7mvzcuq', // Service ID
+          'template_sy6fmhq', // Template ID
           templateParams,
-          'PvmtAHqmnzhtEbKyE' // Public Key from EmailJS
+          '2Xtch0BW21lHRY5eP' // Public Key from EmailJS
         )
         .then(
           (response) => {
