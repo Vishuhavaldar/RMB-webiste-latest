@@ -1,9 +1,9 @@
 <!-- Fixed Enquiry Button -->
 <button
   (click)="openEnquiryForm()"
-  class="fixed bottom-6 right-6 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition flex items-center space-x-2 text-lg"
+  class="fixed bottom-6 right-6 bg-blue-600 text-white px-6 py-3 rounded-full shadow-lg hover:bg-blue-700 transition flex items-center space-x-3 text-lg md:text-xl z-50"
 >
-  <i class="fa-solid fa-envelope text-xl"></i>
+  <i class="fa-solid fa-comment-dots text-2xl"></i>
   <span>Enquiry</span>
 </button>
 
@@ -20,8 +20,7 @@
     </h3>
 
     <!-- Form -->
-    <form [formGroup]="enquiryForm" (ngSubmit)="submitEnquiry()" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-
+    <form [formGroup]="enquiryForm" (ngSubmit)="submitEnquiry()" class="grid grid-cols-1 gap-4">
       <!-- First Name -->
       <div>
         <label class="block text-sm font-semibold text-gray-700">First Name *</label>
@@ -37,7 +36,7 @@
           *ngIf="enquiryForm.get('firstName')?.invalid && enquiryForm.get('firstName')?.touched"
           class="text-red-500 text-sm"
         >
-          First name is required and must be at least 2 characters.
+          First name is required.
         </span>
       </div>
 
@@ -56,7 +55,7 @@
           *ngIf="enquiryForm.get('lastName')?.invalid && enquiryForm.get('lastName')?.touched"
           class="text-red-500 text-sm"
         >
-          Last name is required and must be at least 2 characters.
+          Last name is required.
         </span>
       </div>
 
@@ -67,9 +66,9 @@
           type="text"
           formControlName="designation"
           class="w-full mt-2 p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+          [ngClass]="{'border-red-500': enquiryForm.get('designation')?.invalid && enquiryForm.get('designation')?.touched}"
           placeholder="Enter your designation"
           required
-          [ngClass]="{'border-red-500': enquiryForm.get('designation')?.invalid && enquiryForm.get('designation')?.touched}"
         />
         <span
           *ngIf="enquiryForm.get('designation')?.invalid && enquiryForm.get('designation')?.touched"
@@ -79,16 +78,16 @@
         </span>
       </div>
 
-      <!-- Company Name -->
+      <!-- Company -->
       <div>
         <label class="block text-sm font-semibold text-gray-700">Company Name *</label>
         <input
           type="text"
           formControlName="company"
           class="w-full mt-2 p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+          [ngClass]="{'border-red-500': enquiryForm.get('company')?.invalid && enquiryForm.get('company')?.touched}"
           placeholder="Enter your company name"
           required
-          [ngClass]="{'border-red-500': enquiryForm.get('company')?.invalid && enquiryForm.get('company')?.touched}"
         />
         <span
           *ngIf="enquiryForm.get('company')?.invalid && enquiryForm.get('company')?.touched"
@@ -105,15 +104,35 @@
           type="email"
           formControlName="email"
           class="w-full mt-2 p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+          [ngClass]="{'border-red-500': enquiryForm.get('email')?.invalid && enquiryForm.get('email')?.touched}"
           placeholder="Enter your email"
           required
-          [ngClass]="{'border-red-500': enquiryForm.get('email')?.invalid && enquiryForm.get('email')?.touched}"
         />
         <span
           *ngIf="enquiryForm.get('email')?.invalid && enquiryForm.get('email')?.touched"
           class="text-red-500 text-sm"
         >
-          Please enter a valid email.
+          Valid email is required.
+        </span>
+      </div>
+
+      <!-- Country -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700">Country *</label>
+        <select
+          formControlName="country"
+          class="w-full mt-2 p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+          [ngClass]="{'border-red-500': enquiryForm.get('country')?.invalid && enquiryForm.get('country')?.touched}"
+          required
+        >
+          <option value="" disabled selected>Select country</option>
+          <option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+        </select>
+        <span
+          *ngIf="enquiryForm.get('country')?.invalid && enquiryForm.get('country')?.touched"
+          class="text-red-500 text-sm"
+        >
+          Country is required.
         </span>
       </div>
 
@@ -124,56 +143,46 @@
           type="tel"
           formControlName="mobile"
           class="w-full mt-2 p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+          [ngClass]="{'border-red-500': enquiryForm.get('mobile')?.invalid && enquiryForm.get('mobile')?.touched}"
           placeholder="Enter your mobile number"
           required
-          [ngClass]="{'border-red-500': enquiryForm.get('mobile')?.invalid && enquiryForm.get('mobile')?.touched}"
         />
         <span
           *ngIf="enquiryForm.get('mobile')?.invalid && enquiryForm.get('mobile')?.touched"
           class="text-red-500 text-sm"
         >
-          Mobile number must be exactly 10 digits.
+          Mobile number is required.
         </span>
       </div>
 
+      <!-- Landline -->
+      <div>
+        <label class="block text-sm font-semibold text-gray-700">Landline</label>
+        <input
+          type="tel"
+          formControlName="landline"
+          class="w-full mt-2 p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+          placeholder="Enter your landline"
+        />
+      </div>
+
       <!-- Message -->
-      <div class="col-span-2">
+      <div>
         <label class="block text-sm font-semibold text-gray-700">Message *</label>
         <textarea
           formControlName="message"
           class="w-full mt-2 p-3 border rounded-md focus:ring-blue-500 focus:border-blue-500"
+          [ngClass]="{'border-red-500': enquiryForm.get('message')?.invalid && enquiryForm.get('message')?.touched}"
           placeholder="Enter your message"
           rows="4"
           required
-          [ngClass]="{'border-red-500': enquiryForm.get('message')?.invalid && enquiryForm.get('message')?.touched}"
         ></textarea>
-        <span
-          *ngIf="enquiryForm.get('message')?.invalid && enquiryForm.get('message')?.touched"
-          class="text-red-500 text-sm"
-        >
-          Message must be at least 10 characters.
-        </span>
       </div>
 
-      <!-- Buttons Side by Side -->
-      <div class="col-span-2 flex justify-between gap-4 mt-4">
-        <!-- Submit Button -->
-        <button
-          type="submit"
-          class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition flex-1"
-          [disabled]="enquiryForm.invalid"
-        >
-          <i class="fa-solid fa-paper-plane mr-2"></i> Send Enquiry
-        </button>
-
-        <!-- Close Button -->
-        <button
-          type="button"
-          (click)="closeEnquiryForm()"
-          class="w-full bg-gray-400 text-white py-3 rounded-lg hover:bg-gray-500 transition flex-1"
-        >
-          <i class="fa-solid fa-times mr-2"></i> Close
-        </button>
+      <!-- Buttons: Enquiry & Close -->
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-4">
+        <button type="submit" class="bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700">Send Enquiry</button>
+        <button type="button" (click)="closeEnquiryForm()" class="bg-gray-300 py-3 px-6 rounded-lg hover:bg-gray-400">Close</button>
       </div>
     </form>
   </div>
