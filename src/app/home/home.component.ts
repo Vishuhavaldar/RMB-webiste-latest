@@ -13,4 +13,5 @@ export class HomeComponent {
   goToProducts(company: string) {
     this.router.navigate(['/products'], { queryParams: { category: company } });
   }
+  
 }
