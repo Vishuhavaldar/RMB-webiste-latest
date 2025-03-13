@@ -118,7 +118,7 @@ export class ProductSectionComponent {
       ],
     },
     {
-      name: 'LINTEC',
+      name: 'LINTEC CO,. LTD.',
       products: [
         {
           name: 'Fast Response Mass Flow Controller MC-7000 Series',
