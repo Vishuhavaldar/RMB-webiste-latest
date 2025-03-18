@@ -14,7 +14,7 @@
           *ngFor="let category of categories"
           (click)="selectCategory(category.name)"
           class="px-6 py-2 text-lg font-semibold rounded-lg transition"
-          [class.bg-blue-600]="selectedCategory === category.name"
+          [class.bg-sky-600]="selectedCategory === category.name"
           [class.text-white]="selectedCategory === category.name"
           [class.bg-gray-200]="selectedCategory !== category.name"
           [class.text-gray-800]="selectedCategory !== category.name"
