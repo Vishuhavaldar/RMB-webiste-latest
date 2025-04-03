@@ -1,4 +1,4 @@
-@keyframes fade-slide-up {
+@keyframes fade-slide-up { 
     from {
         opacity: 0;
         transform: translateY(30px);
@@ -24,6 +24,19 @@
     animation: fade-slide-up 1s ease-out forwards;
 }
 
-.animate-overlay-scale {
-    animation: overlay-scale 2s ease-out forwards;
+.logo-hover:hover {
+    animation: overlay-scale 0.5s ease-out forwards;
+}
+
+/* Smooth Scrolling for Mobile */
+@media (max-width: 768px) {
+    .scrolling-container {
+        display: flex;
+        animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
 }
