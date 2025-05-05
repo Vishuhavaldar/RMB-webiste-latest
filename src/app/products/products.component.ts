@@ -19,6 +19,7 @@ export class ProductSectionComponent {
           name: 'Air booster',
           image: 'assets/images/airbooster.png',
           description: 'Enables air boosting by using only air pressure in combination with air tanks to raise the primary pressure two-fold (0.99 MPa max.)',
+          datasheet:'https://www.ckd.co.jp/kiki/en/file/10480'
         },
         
         {
@@ -163,27 +164,61 @@ export class ProductSectionComponent {
       ],
     },
   ];
+  selectedCategory: string = 'CKD'; // Default category
+  filteredProducts: any[] = []; // List of filtered products
 
-  selectedCategory = 'CKD';
+  isDatasheetModalOpen = false; // Flag to show datasheet modal
+  selectedProduct: any = null; // Selected product for datasheet
+  qrCodeUrl: string = ''; // URL for the generated QR code
+
   enquire(productName: string) {
     alert('Enquiry for: ' + productName);
   }
 
-  get filteredProducts() {
-    return this.categories.find((c) => c.name === this.selectedCategory)?.products || [];
-  }
-
-  selectCategory(category: string) {
+  // Method to set the selected category and filter products
+  selectCategory(category: string): void {
     this.selectedCategory = category;
+    // Update filteredProducts when the category changes
+    this.filteredProducts = this.categories.find((c) => c.name === category)?.products || [];
   }
 
+  // Open modal to show datasheet details
+  openDatasheetModal(datasheetUrl: string): void {
+    this.selectedProduct = this.filteredProducts.find(product => product.datasheet === datasheetUrl);
+    this.qrCodeUrl = this.generateQrCode(datasheetUrl);
+    this.isDatasheetModalOpen = true;
+  }
+
+  // Close modal
+  closeDatasheetModal(): void {
+    this.isDatasheetModalOpen = false;
+  }
+
+  // Generate QR Code for the datasheet using an API (Replace with your actual API URL)
+  generateQrCode(url: string): string {
+    return `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(url)}&size=150x150`;
+  }
+
+  // Initialization, subscribe to query params
   constructor(private route: ActivatedRoute) {}
+
+  // ngOnInit() {
+  //   this.route.queryParams.subscribe(params => {
+  //     if (params['category']) {
+  //       this.selectedCategory = params['category'];
+  //       this.filteredProducts = this.categories.find((c) => c.name === this.selectedCategory)?.products || [];
+  //     }
+  //   });
+  // }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       if (params['category']) {
         this.selectedCategory = params['category'];
       }
+      // Ensure filteredProducts are updated when the component initializes
+      this.filteredProducts = this.categories.find((c) => c.name === this.selectedCategory)?.products || [];
     });
   }
+  
 }
