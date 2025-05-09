@@ -93,43 +93,43 @@ export class ProductSectionComponent {
           name: 'Diaphragm Pump',
           image: 'assets/images/diaphragm-pump.png',
           description: 'Diaphragm Pumps have numerous types that can handle both gases and liquids with excellent precision and reliability. Diaphragm pumps from IBS Japan, such as the FD series, are available in a variety of sizes and features to suit a wide range of applications.',
-          datasheet:''
+          datasheet:'assets/datasheet_pdf/pumps.pdf'
         },
         {
           name: 'Metal Bellows Pump',
           image: 'assets/images/mettal-bellow-pump.png',
           description: 'Metal Bellows Pumps are intended for use when precise, leak-free performance is required. This device is suited for applications such as handling helium or fluorine in semiconductor and nuclear processes, where gas loss prevention is vital.',
-          datasheet:''
+          datasheet:'assets/datasheet_pdf/pumps.pdf'
         },
         {
           name: 'Nitrogen Gas Generator',
           image: 'https://product.ask-ibs.jp/html/upload/save_image/1227154228_658bc75486fdd.jpg',
           description:'Nitrogen Gas Generators offer efficient and dependable on-demand nitrogen generation solutions for a wide range of industrial applications. These generators use Pressure Swing Adsorption (PSA) technology to separate nitrogen from ambient air and supply high-purity gas, enabling applications that require continuous nitrogen supplies without the requirement for storage or delivery logistics.',
-          datasheet:''
+          datasheet:'assets/datasheet_pdf/generator.pdf'
         },
         {
           name: 'Oxygen Gas Generator',
           image: 'https://product.ask-ibs.jp/html/upload/save_image/1227153212_658bc4ec07212.jpg',
           description:'The Oxygen Gas Generators use PSA (Pressure Swing Adsorption) technology to produce a consistent oxygen output, with purity values of up to 90% among models. The series key characteristics include integrated oil-free compressors, touch-panel controls for ease of operation, and oxygen concentration sensors, which ensure a high level of automation and little maintenance.',
-          datasheet:''
+          datasheet:'assets/datasheet_pdf/generator.pdf'
         },
         {
           name: 'Check Valve',
           image: 'https://product.ask-ibs.jp/html/upload/save_image/1003173510_651bd23e6f8f7.jpg',
           description:'IBS provides a selection of check valves developed for a variety of industrial applications that are noted for their durability and dependability. These valves are suited for use in a wide range of systems that require unidirectional flow control, and they frequently include features like as high-pressure tolerance and compatibility with various media.',
-          datasheet:''
+          datasheet:'assets/datasheet_pdf/valves.pdf'
         },
         {
           name: 'Relief Valve',
           image: 'https://product.ask-ibs.jp/html/upload/save_image/0707170839_64a7c8074b6c5.jpg',
           description:'Relief valves are designed for specific industrial applications, with a focus on efficient pressure management and control. They are designed for low-pressure applications, ranging from air pressure to low-pressure settings. It ensures solid sealing and great reproducibility, making it perfect for accurate pressure control in low-pressure circuits.',
-          datasheet:''
+          datasheet:'assets/datasheet_pdf/valves.pdf'
         },
         {
           name: 'Needle Valve',
           image: 'https://product.ask-ibs.jp/html/upload/save_image/1005150213_651e5165cf509.jpg',
           description:"IBS's Needle Valves which are specifically designed for precision flow control and features a non-rotating needle construction for smooth and accurate regulation. They are available in brass or stainless steel, with a fluor rubber (FKM) seal as standard, assuring compatibility with gases and liquids.",
-          datasheet:''
+          datasheet:'assets/datasheet_pdf/valves.pdf'
         },
 
 
