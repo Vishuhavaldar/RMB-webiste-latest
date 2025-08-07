@@ -37,7 +37,7 @@ export class EnquiryComponent implements OnInit {
   }
 
   getCountries() {
-    this.http.get<any[]>('https://restcountries.com/v2/all')
+    this.http.get<any[]>('https://restcountries.com/v3.1/all')
       .subscribe({
         next: (data) => {
           this.countries = data.map(country => country.name);
