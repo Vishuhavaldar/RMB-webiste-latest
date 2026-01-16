@@ -18,7 +18,23 @@
       >
         {{ category.name }}
       </button>
+      
     </div>
+
+    <div class="flex justify-center my-4 px-4" *ngIf="selectedCategory === 'LINTEC CO,. LTD.'">
+   <a
+    href="assets/datasheet_pdf/LINTEC- CATALOGUE.pdf"
+    download
+    class="px-6 py-2 text-lg font-semibold rounded-lg transition text-center w-full sm:w-auto"
+    [class.bg-sky-600]="selectedCategory === 'LINTEC CO,. LTD.'"
+    [class.text-white]="selectedCategory === 'LINTEC CO,. LTD.'"
+    [class.bg-gray-200]="selectedCategory !== 'LINTEC CO,. LTD.'"
+    [class.text-gray-800]="selectedCategory !== 'LINTEC CO,. LTD.'"
+  >
+    Download Catalog
+  </a>
+</div>
+
 
     <!-- Products Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
